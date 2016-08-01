@@ -1,0 +1,44 @@
+UserBundle\Entity\User:
+    type:  entity
+    table: fos_user
+    id:
+        id:
+            type: integer
+            generator:
+                strategy: AUTO
+
+    fields:
+        nom:
+            type: string
+            lenght: 255
+            nullable: false
+        prenom:
+            type: string
+            lenght: 255
+            nullable: false
+        sexe:
+            type: string
+            lenght: 6
+            nullable: false
+        photo:
+            type: string
+            lenght: 255
+            nullable: true
+        adresse_postal:
+            type: string
+            lenght: 255
+            nullable: true
+        code_postal:
+            type: integer
+            nullable: true
+        ville:
+            type: string
+            lenght: 255
+            nullable: true
+        date_naissance:
+            type: date
+            nullable: false
+        github:
+            type: string
+            lenght: 255
+            nullable: true

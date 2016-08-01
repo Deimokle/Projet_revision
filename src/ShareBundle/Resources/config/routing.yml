@@ -1,0 +1,7 @@
+share_document:
+    resource: "@ShareBundle/Resources/config/routing/document.yml"
+    prefix:   /document
+
+share_homepage:
+    path:     /
+    defaults: { _controller: ShareBundle:Default:index }

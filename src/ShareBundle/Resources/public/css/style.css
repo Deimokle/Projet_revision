@@ -1,0 +1,9 @@
+/******************************\
+            Menu
+\******************************/
+.nav_top a:first-child, .nav_top a:first-child img{
+    height: 100%;
+}
+nav {
+    background-color: #2d2d2d;
+}
