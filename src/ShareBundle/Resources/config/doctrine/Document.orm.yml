@@ -25,7 +25,12 @@ ShareBundle\Entity\Document:
             type: datetime
             nullable: true
             column: date_modif
-    lifecycleCallbacks: {  }
+    lifecycleCallbacks:
+        prePersist: [ preUpload ]
+        preUpdate: [ preUpload ]
+        postPersist: [ upload ]
+        postUpdate: [ upload ]
+        postRemove: [ removeUpload ]
 
     manyToOne:
         users:

@@ -1,0 +1,19 @@
+language_new:
+    path:     /new
+    defaults: { _controller: ShareBundle:Language:new }
+    methods: [GET, POST]
+
+language_edit:
+    path:     /{id}/edit
+    defaults: { _controller: ShareBundle:Language:edit }
+    methods: [GET, POST]
+
+language_delete:
+    path:     /{id}/delete
+    defaults: { _controller: ShareBundle:Language:delete }
+    methods:  DELETE
+
+language_index:
+    path:     /index
+    defaults: { _controller: ShareBundle:Language:index }
+    methods: GET

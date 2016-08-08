@@ -9,6 +9,63 @@ use Doctrine\ORM\Mapping as ORM;
  */
 class Document
 {
+    public $file;
+
+    protected function getUploadDir()
+    {
+        return 'uploads/doc';
+    }
+
+    protected function getUploadRootDir()
+    {
+        return __DIR__.'/../../../web/'.$this->getUploadDir();
+    }
+
+    public function getWebPath()
+    {
+        return null === $this->fichier ? null : $this->getUploadDir().'/'.$this->fichier;
+    }
+
+    public function getAbsolutePath()
+    {
+        return null === $this->fichier ? null : $this->getUploadRootDir().'/'.$this->fichier;
+    }
+
+    /**
+     * @ORM\PrePersist
+     */
+    public function preUpload()
+    {
+        if (null !== $this->file) {
+            $this->fichier = uniqid().'.'.$this->file->guessExtension();
+        }
+    }
+
+    /**
+     * @ORM\postPersist
+     */
+    public function upload()
+    {
+        if (null === $this->file) {
+            return;
+        }
+
+        $this->file->move($this->getUploadRootDir(), $this->fichier);
+
+        unset($this->file);
+    }
+
+    /**
+     * @ORM\postRemove
+     */
+    public function removeUpload()
+    {
+        if ($file = $this->getAbsolutePath()) {
+            unlink($file);
+        }
+    }
+
+    // generate code
     /**
      * @var int
      */
@@ -163,5 +220,33 @@ class Document
     public function getDateModif()
     {
         return $this->dateModif;
+    }
+    /**
+     * @var \UserBundle\Entity\User
+     */
+    private $users;
+
+
+    /**
+     * Set users
+     *
+     * @param \UserBundle\Entity\User $users
+     * @return Document
+     */
+    public function setUsers(\UserBundle\Entity\User $users = null)
+    {
+        $this->users = $users;
+
+        return $this;
+    }
+
+    /**
+     * Get users
+     *
+     * @return \UserBundle\Entity\User 
+     */
+    public function getUsers()
+    {
+        return $this->users;
     }
 }

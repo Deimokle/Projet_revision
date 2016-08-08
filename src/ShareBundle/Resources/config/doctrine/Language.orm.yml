@@ -1,0 +1,17 @@
+ShareBundle\Entity\Language:
+    type: entity
+    table: null
+    repositoryClass: ShareBundle\Repository\LanguageRepository
+    id:
+        id:
+            type: integer
+            id: true
+            generator:
+                strategy: AUTO
+    fields:
+        lngDev:
+            type: string
+            length: '30'
+            unique: true
+            column: lng_dev
+    lifecycleCallbacks: {  }

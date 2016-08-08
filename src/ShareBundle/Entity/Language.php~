@@ -1,0 +1,13 @@
+<?php
+
+namespace ShareBundle\Entity;
+
+use Doctrine\ORM\Mapping as ORM;
+
+/**
+ * Language
+ */
+class Language
+{
+  
+}

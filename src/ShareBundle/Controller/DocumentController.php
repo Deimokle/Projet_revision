@@ -38,6 +38,11 @@ class DocumentController extends Controller
         $user = $this->get('security.token_storage')->getToken()->getUser();
         $securityContext = $this->container->get('security.authorization_checker');
 
+/*        if (!$securityContext->isGranted('IS_AUTHENTICATED_FULLY'))
+        {
+            return $this->redirectToRoute("fos_user_security_login");
+        }*/
+
         $document = new Document();
         $form = $this->createForm('ShareBundle\Form\DocumentType', $document);
         $form->handleRequest($request);
@@ -45,7 +50,6 @@ class DocumentController extends Controller
         if ($form->isSubmitted() && $form->isValid()) {
             $em = $this->getDoctrine()->getManager();
 
-            $user = $user->getUsername();
             $document->setUsers($user);
 
             $document->setDatePublication(new \DateTime());
@@ -89,6 +93,11 @@ class DocumentController extends Controller
 
         if ($editForm->isSubmitted() && $editForm->isValid()) {
             $em = $this->getDoctrine()->getManager();
+            
+            if ($editForm->get('fichier')->getData() != null){
+                $document->removeUpload();
+                $document->preUpload();
+            }
 
             $document->setDateModif(new \DateTime());
 

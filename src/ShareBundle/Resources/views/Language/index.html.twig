@@ -1,0 +1,28 @@
+{% extends "::base.html.twig" %}
+
+{% block title %}ShareBundle:Language:index{% endblock %}
+
+{% block body %}
+<h1>Welcome to the Language:index page</h1>
+    <div class="row">
+        <div class="col m6 offset-m3 s8 offset-s2">
+            <table>
+                <thead>
+                    <tr>
+                        <th>Languages</th>
+                        <th>Action</th>
+                    </tr>
+                </thead>
+                <tbody>
+                    {% for lng in languages %}
+                        <tr>
+                            <td>{{ lng.lngDev }}</td>
+                            <td><a href="{{ path('language_edit', {'id': language.id}) }}">Modifier</a></td>
+                            <td><a href="{{ path('language_delete', {'id': language.id}) }}">Supprimer</a></td>
+                        </tr>
+                    {% endfor %}
+                </tbody>
+            </table>
+        </div>
+    </div>
+{% endblock %}

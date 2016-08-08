@@ -5,3 +5,7 @@ share_document:
 share_homepage:
     path:     /
     defaults: { _controller: ShareBundle:Default:index }
+
+share_language:
+    resource: "@ShareBundle/Resources/config/routing/language.yml"
+    prefix:   /language
