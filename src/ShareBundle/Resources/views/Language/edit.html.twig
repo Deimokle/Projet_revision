@@ -3,5 +3,16 @@
 {% block title %}ShareBundle:Language:edit{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Language:edit page</h1>
+<h1>Editer le language: {{ language.lngDev }}</h1>
+    <div class="row">
+        <div class="col m6 offset-m3">
+            {{ form_start(edit_form) }}
+            {{ form_label(edit_form.lngDev) }}
+            {{ form_widget(edit_form.lngDev) }}
+            {{ form_errors(edit_form.lngDev) }}
+            <input type="submit" value="Modifier">
+            {{ form_end(edit_form) }}
+            <a href="{{ path('language_index') }}">Retour à la liste</a>
+        </div>
+    </div>
 {% endblock %}

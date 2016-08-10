@@ -8,6 +8,7 @@
             <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/materialize/0.97.7/css/materialize.min.css">
             <link rel="stylesheet" href="{{ asset('bundles/user/css/style.css') }}">
             <link rel="stylesheet" href="{{ asset('bundles/share/css/style.css') }}">
+            <link href="https://fonts.googleapis.com/icon?family=Material+Icons" rel="stylesheet">
 
         {% endblock %}
         <link rel="icon" type="image/x-icon" href="{{ asset('logo.jpg') }}" />
@@ -20,9 +21,9 @@
                 <a href="{{ path('share_homepage') }}" class="brand-logo"><img src="https://avatars1.githubusercontent.com/u/8874047?v=3&s=200"></a>
                 <ul id="nav-mobile" class="right hide-on-med-and-down">
                     {% if is_granted("IS_AUTHENTICATED_REMEMBERED") %}
-                    <li><a href="{{ path('fos_user_security_logout') }}">Se déconnecter</a></li>
+                    <li><a href="{{ path('fos_user_security_logout') }}"><i class="material-icons">phonelink_erase</i></a></li>
                     {% else %}
-                    <li><a href="{{ path('fos_user_security_login') }}">Se connecter</a></li>
+                    <li><a href="{{ path('fos_user_security_login') }}"><i class="material-icons">phonelink_lock</i></a></li>
                     {% endif %}
                     <li><a href="{{ path('fos_user_profile_show') }}">User</a></li>
                     <li><a href="{{ path('document_index') }}">Documents</a></li>

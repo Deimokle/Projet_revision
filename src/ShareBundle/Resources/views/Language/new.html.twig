@@ -3,5 +3,16 @@
 {% block title %}ShareBundle:Language:new{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Language:new page</h1>
+<h1>Créer un language</h1>
+    {{ form_start(form) }}
+    <div class="row">
+        <div class="col m6 offset-m3 s8 offset-s2">
+            {{ form_label(form.lngDev) }}
+            {{ form_widget(form.lngDev) }}
+            {{ form_errors(form.lngDev) }}
+            <input type="submit" value="Créer">
+        </div>
+    </div>
+    {{ form_end(form) }}
+
 {% endblock %}

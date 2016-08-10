@@ -42,3 +42,7 @@ UserBundle\Entity\User:
             type: string
             lenght: 255
             nullable: true
+    manyToMany:
+        languages:
+            targetEntity: ShareBundle\Entity\Language
+            inversedBy: users

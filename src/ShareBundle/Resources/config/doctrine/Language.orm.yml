@@ -14,4 +14,8 @@ ShareBundle\Entity\Language:
             length: '30'
             unique: true
             column: lng_dev
+    manyToMany:
+        users:
+            targetEntity: UserBundle\Entity\User
+            mappedBy: languages
     lifecycleCallbacks: {  }

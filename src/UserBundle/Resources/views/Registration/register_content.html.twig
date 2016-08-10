@@ -84,6 +84,13 @@
                 {{ form_errors(form.github) }}
                 </div>
             </div>
+            <div class="row">
+                <div class="input-field col s12">
+                    {{ form_widget(form.languages) }}
+                    {{ form_label(form.languages) }}
+                    {{ form_errors(form.languages) }}
+                </div>
+            </div>
             <div>
                 <input class="btn waves-effect waves-light" type="submit" value="{{ 'registration.submit'|trans }}" />
             </div>

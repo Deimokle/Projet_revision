@@ -11,7 +11,7 @@ language_edit:
 language_delete:
     path:     /{id}/delete
     defaults: { _controller: ShareBundle:Language:delete }
-    methods:  DELETE
+    methods:  [GET, DELETE]
 
 language_index:
     path:     /index

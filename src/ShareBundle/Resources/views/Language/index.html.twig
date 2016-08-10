@@ -3,7 +3,8 @@
 {% block title %}ShareBundle:Language:index{% endblock %}
 
 {% block body %}
-<h1>Welcome to the Language:index page</h1>
+<h1>liste des langages</h1>
+    <a href="{{ path('language_new') }}">Créer une nouvelle entrée</a>
     <div class="row">
         <div class="col m6 offset-m3 s8 offset-s2">
             <table>
@@ -17,8 +18,10 @@
                     {% for lng in languages %}
                         <tr>
                             <td>{{ lng.lngDev }}</td>
-                            <td><a href="{{ path('language_edit', {'id': language.id}) }}">Modifier</a></td>
-                            <td><a href="{{ path('language_delete', {'id': language.id}) }}">Supprimer</a></td>
+                            <td>
+                                <a href="{{ path('language_edit', {'id': lng.id}) }}">Modifier</a>
+                                <a href="{{ path('language_delete', {'id': lng.id}) }}">Supprimer</a>
+                            </td>
                         </tr>
                     {% endfor %}
                 </tbody>

@@ -275,4 +275,42 @@ class User extends BaseUser
     {
         return $this->github;
     }
+    /**
+     * @var \Doctrine\Common\Collections\Collection
+     */
+    private $languages;
+
+
+    /**
+     * Add languages
+     *
+     * @param \ShareBundle\Entity\Language $languages
+     * @return User
+     */
+    public function addLanguage(\ShareBundle\Entity\Language $languages)
+    {
+        $this->languages[] = $languages;
+
+        return $this;
+    }
+
+    /**
+     * Remove languages
+     *
+     * @param \ShareBundle\Entity\Language $languages
+     */
+    public function removeLanguage(\ShareBundle\Entity\Language $languages)
+    {
+        $this->languages->removeElement($languages);
+    }
+
+    /**
+     * Get languages
+     *
+     * @return \Doctrine\Common\Collections\Collection 
+     */
+    public function getLanguages()
+    {
+        return $this->languages;
+    }
 }
